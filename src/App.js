@@ -1,17 +1,15 @@
-import React from "react";
+import React, {Fragment} from "react";
 
 import styled from 'styled-components';
-
-export const Title = styled.h1`
-  color: red;
-  font-size: 32px;
-`;
+import GlobalStyle from './styles/global';
 
 function App() {
   return (
-    <div>
-      <Title>oi</Title>
-    </div>
+    <Fragment>
+      <GlobalStyle>
+        <div/>
+      </GlobalStyle>
+    </Fragment>
   );
 }
 
