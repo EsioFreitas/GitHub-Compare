@@ -1,21 +1,36 @@
 import React from "react";
 
-import { Container, Repository } from "./styles";
+import { Container, Repository } from "./style";
 
-const CompareList = () => (
+const CompareList = ({repositories}) => (
   <Container>
-    <Repository>
-      <header>
-        <img src="" alt="facebook" />
-        <strong>react</strong>
-        <strong>facebook</strong>
-      </header>
-      <ul>
-        <li>
-          95,8 <small>stars</small>
-        </li>
-      </ul>
-    </Repository  >
+    {
+      repositories.map(repository=>(
+      <Repository>
+        <header>
+          <img src={repository.owner.avatar_url} alt={repository.owner.login} />
+          <strong>{repository.owner.login}</strong>
+          <strong>facebook</strong>
+        </header>
+        <ul>  
+          <li>
+            {repository.stargazers_count} <small>stars</small>
+          </li>
+          <li>
+            {repository.forks_count} <small>stars</small>
+          </li>
+          <li>
+            {repository.open_issues_count} <small>stars</small>
+          </li>
+          <li>
+            {repository.pushed_at} <small>stars</small>
+          </li>
+          
+        </ul>
+      </Repository  >
+      ))
+    }
+    
   </Container>
 );
 
