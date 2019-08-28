@@ -25,7 +25,6 @@ const CompareList = ({repositories}) => (
           <li>
             {repository.pushed_at} <small>stars</small>
           </li>
-          
         </ul>
       </Repository  >
       ))
