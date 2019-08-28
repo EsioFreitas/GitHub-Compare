@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
-// import { Container } from './styles';
+import { Container, Repository } from "./styles";
 
-const CompareList = ()=>(
-  <div>
-    <div>
+const CompareList = () => (
+  <Container>
+    <Repository>
       <header>
-        <img src="" alt="facebook"/>
+        <img src="" alt="facebook" />
         <strong>react</strong>
         <strong>facebook</strong>
       </header>
@@ -15,8 +15,8 @@ const CompareList = ()=>(
           95,8 <small>stars</small>
         </li>
       </ul>
-    </div>
-  </div>
+    </Repository  >
+  </Container>
 );
 
 export default CompareList;
