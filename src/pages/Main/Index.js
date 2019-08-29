@@ -9,6 +9,7 @@ export default class Main extends Component {
   state={
     repositoryInput: '',
     repositories: [],
+    repositoryError: false
   }
 
   handleAddRepository = async (e) =>{
@@ -18,7 +19,7 @@ export default class Main extends Component {
         this.setState({repositoryInput: '',
         repositories: [...this.state.repositories, response.data]})
     } catch (error) {
-      console.log(error)
+      this.setState({repositoryError: true})
       
     }
   }
@@ -26,10 +27,10 @@ export default class Main extends Component {
     return (
       <Container>
         <img src={logo} alt="Github Compare" />
-        <Form onSubmit={(e)=>this.handleAddRepository(e)}>  
+        <Form withError={this.state.repositoryError}onSubmit={(e)=>this.handleAddRepository(e)}>  
           <input type="text" placeholder="usuario/repositorio" 
           value={this.state.repositoryInput}
-          onChange={e => this.setState({repositoryInput: e.target.value})}/>
+          onChange={e => this.setState({repositoryError: false,repositoryInput: e.target.value})}/>
           <button type="submit">ok</button>
         </Form>
         <CompareList repositories={this.state.repositories}/>
